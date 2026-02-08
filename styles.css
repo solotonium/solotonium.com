@@ -1,0 +1,64 @@
+:root{
+  --bg:#0b0d12;
+  --card:#121625;
+  --text:#e9eefc;
+  --muted:#a7b0c9;
+  --accent:#7c5cff;
+  --accent2:#2ee59d;
+  --border:rgba(255,255,255,.08);
+  --shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,.25), transparent 60%),
+              radial-gradient(900px 500px at 90% 20%, rgba(46,229,157,.15), transparent 55%),
+              var(--bg);
+  color:var(--text);
+}
+.wrap{max-width:920px; margin:0 auto; padding:48px 20px 64px}
+.hero{padding:28px 0 10px}
+.badge{
+  display:inline-block;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:14px;
+}
+h1{font-size:56px; letter-spacing:-.02em; margin:16px 0 10px}
+.sub{max-width:62ch; color:var(--muted); line-height:1.55; font-size:18px}
+.cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid rgba(124,92,255,.35);
+  background: rgba(124,92,255,.18);
+  color:var(--text);
+  text-decoration:none;
+  box-shadow: var(--shadow);
+}
+.btn:hover{transform: translateY(-1px)}
+.btn.ghost{border-color:var(--border); background:rgba(255,255,255,.03)}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px 18px;
+  margin-top:18px;
+  box-shadow: var(--shadow);
+}
+.grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:18px}
+@media (max-width: 780px){
+  h1{font-size:40px}
+  .grid{grid-template-columns:1fr}
+}
+h2{margin:0 0 10px; font-size:20px}
+ul,ol{margin:10px 0 0 18px; color:var(--muted); line-height:1.6}
+strong{color:var(--text)}
+.muted{color:var(--muted)}
+.footer{margin-top:28px; text-align:center; color:var(--muted)}

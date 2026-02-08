@@ -1,0 +1,21 @@
+# Never commit secrets or local artifacts
+.env
+*.key
+*.pem
+*.json
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Node / build artifacts
+node_modules/
+dist/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
