@@ -44,6 +44,12 @@ h1{font-size:56px; letter-spacing:-.02em; margin:16px 0 10px}
 }
 .btn:hover{transform: translateY(-1px)}
 .btn.ghost{border-color:var(--border); background:rgba(255,255,255,.03)}
+
+/* Highlight CTA buttons when their target section is active */
+.btn.active{
+  border-color: rgba(46,229,157,.55);
+  background: rgba(46,229,157,.16);
+}
 .card{
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   border:1px solid var(--border);

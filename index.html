@@ -18,8 +18,8 @@
           experiments that create leverage.
         </p>
         <div class="cta">
-          <a class="btn" href="#now">What I’m building</a>
-          <a class="btn ghost" href="#contact">Contact</a>
+          <a class="btn" data-scrollspy href="#now">What I’m building</a>
+          <a class="btn ghost" data-scrollspy href="#contact">Contact</a>
         </div>
       </header>
 
@@ -74,6 +74,39 @@
 
     <script>
       document.getElementById('y').textContent = new Date().getFullYear();
+
+      // Simple hash/scrollspy: highlight CTA button that matches the active section.
+      const links = Array.from(document.querySelectorAll('a[data-scrollspy][href^="#"]'));
+      const sections = links
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+      const setActive = (hash) => {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
+      };
+
+      // On click, mark active immediately.
+      links.forEach(a => a.addEventListener('click', () => setActive(a.getAttribute('href'))));
+
+      // Update on hash changes.
+      window.addEventListener('hashchange', () => setActive(location.hash || '#now'));
+
+      // Update on scroll (prefer the section closest to the top).
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible[0]?.target?.id) {
+            setActive('#' + visible[0].target.id);
+          }
+        },
+        { root: null, threshold: [0.35, 0.6, 0.85] }
+      );
+      sections.forEach(s => observer.observe(s));
+
+      // Initial state
+      setActive(location.hash || '#now');
     </script>
   </body>
 </html>
