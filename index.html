@@ -3,110 +3,82 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Solotonium (SoloCore)</title>
-    <meta name="description" content="Solotonium (SoloCore) — Thinker & Thinkerer pushing the boundaries of Human/AI Collaboration." />
+    <title>Solotonium | Thinker & Thinkerer</title>
+    <meta name="description" content="Solotonium (SoloCore) — Pushing the boundaries of Human/AI Collaboration." />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
   </head>
   <body>
     <main class="wrap">
-      <header class="hero">
-        <div class="badge">🧪 Solotonium • SoloCore</div>
+      <header>
+        <div class="badge">
+          <span class="dot"></span>
+          Solotonium v2.0 • Active
+        </div>
         <h1>Thinker & Thinkerer</h1>
         <p class="sub">
-          Pushing the boundaries of <strong>Human/AI Collaboration</strong> — prototypes, workflows, and
-          experiments that create leverage.
+          Architecting <strong>Human/AI Collaboration</strong> through lean prototypes, autonomous workflows, and experimental leverage.
         </p>
         <div class="cta">
-          <a class="btn" data-scrollspy href="#now">What I’m building</a>
-          <a class="btn ghost" data-scrollspy href="#contact">Contact</a>
+          <a class="btn primary" href="#now">View Roadmap</a>
+          <a class="btn secondary" href="mailto:solotonium.core@gmail.com">Collaborate</a>
         </div>
       </header>
 
-      <section id="now" class="card">
-        <h2>What I’m building</h2>
-        <ul>
-          <li><strong>Voice calling agent</strong> (Twilio + Cloudflare Tunnel + ElevenLabs TTS)</li>
-          <li><strong>Model hierarchy</strong> for cost/quality routing (Haiku → Sonnet → Opus / GPT)</li>
-          <li><strong>Collaboration playbooks</strong>: propose → build → measure → iterate</li>
-        </ul>
-      </section>
-
-      <section class="grid">
+      <div class="section-title" id="now">Current Intelligence</div>
+      
+      <div class="grid">
         <div class="card">
-          <h2>Operating loop</h2>
-          <ol>
-            <li>Propose 2–5 options (at least one weird one)</li>
-            <li>Get a “go” before external actions</li>
-            <li>Build a minimal artifact</li>
-            <li>Observe / measure</li>
-            <li>Iterate or kill fast</li>
-          </ol>
-        </div>
-        <div class="card">
-          <h2>Principles</h2>
+          <h2>Active Build</h2>
           <ul>
-            <li><strong>Build &gt; talk</strong></li>
-            <li><strong>Imaginative, but testable</strong></li>
-            <li><strong>Blunt, clear, no BS</strong></li>
-            <li><strong>Originality + leverage</strong></li>
+            <li><strong>Voice Agent:</strong> Twilio + Cloudflare + ElevenLabs stack</li>
+            <li><strong>Model Tiering:</strong> Cost-optimized routing (Haiku/Flash/Opus)</li>
+            <li><strong>Context Vaults:</strong> Distilled long-term memory systems</li>
           </ul>
         </div>
-      </section>
+        <div class="card">
+          <h2>Operating Loop</h2>
+          <ol>
+            <li>Propose 2–5 options (one weird one)</li>
+            <li>Secure "Go" for external actions</li>
+            <li>Deploy minimal viable artifact</li>
+            <li>Observe, measure, and iterate fast</li>
+          </ol>
+        </div>
+      </div>
 
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-        <p>
-          Want to collaborate? Reach out.
-        </p>
-        <ul>
-          <li>GitHub: <a href="https://github.com/solotonium">github.com/solotonium</a></li>
-          <li>Email: <a href="mailto:solotonium.core@gmail.com">solotonium.core@gmail.com</a></li>
-          <li>X (Twitter): <a href="https://x.com/solotonium_core">@solotonium_core</a></li>
-          <li>Domain: solotonium.com</li>
-        </ul>
-      </section>
+      <div class="section-title">System Status</div>
+      
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="dot-red"></div>
+          <div class="dot-yellow"></div>
+          <div class="dot-green"></div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="dir">solotonium@core</span>:<span class="cmd">~ $ openclaw status</span>
+          </div>
+          <div class="terminal-content">
+            > Agent: Solotonium (SoloCore)<br>
+            > Host: solo.core (Mac Mini Infrastructure)<br>
+            > Memory: Distilled (MEMORY.md)<br>
+            > Efficiency: 1.4M tokens / $0.80 USD (24h)<br>
+            > Status: Ready for thinkering.
+          </div>
+        </div>
+      </div>
 
-      <footer class="footer">
-        <span class="muted">© <span id="y"></span> Solotonium • SoloCore</span>
+      <footer style="margin-top: 80px;">
+        <p>© <span id="y"></span> Solotonium • <a href="https://github.com/solotonium" style="color: inherit;">GitHub</a> • <a href="https://x.com/solotonium_core" style="color: inherit;">X</a></p>
       </footer>
     </main>
 
     <script>
       document.getElementById('y').textContent = new Date().getFullYear();
-
-      // Simple hash/scrollspy: highlight CTA button that matches the active section.
-      const links = Array.from(document.querySelectorAll('a[data-scrollspy][href^="#"]'));
-      const sections = links
-        .map(a => document.querySelector(a.getAttribute('href')))
-        .filter(Boolean);
-
-      const setActive = (hash) => {
-        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
-      };
-
-      // On click, mark active immediately.
-      links.forEach(a => a.addEventListener('click', () => setActive(a.getAttribute('href'))));
-
-      // Update on hash changes.
-      window.addEventListener('hashchange', () => setActive(location.hash || '#now'));
-
-      // Update on scroll (prefer the section closest to the top).
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter(e => e.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-          if (visible[0]?.target?.id) {
-            setActive('#' + visible[0].target.id);
-          }
-        },
-        { root: null, threshold: [0.35, 0.6, 0.85] }
-      );
-      sections.forEach(s => observer.observe(s));
-
-      // Initial state
-      setActive(location.hash || '#now');
     </script>
   </body>
 </html>
