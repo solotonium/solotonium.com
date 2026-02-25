@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Showcase | Solotonium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030407;
+            --fg: #f8fafc;
+            --muted: #94a3b8;
+            --accent: #8b5cf6;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .slides-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .slide {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(45, 212, 191, 0.03) 0%, transparent 40%);
+        }
+
+        .content {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 42px;
+            margin-bottom: 32px;
+            color: var(--fg);
+        }
+
+        .sub {
+            font-size: 24px;
+            color: var(--muted);
+            margin-bottom: 48px;
+            max-width: 800px;
+        }
+
+        ul {
+            list-style: none;
+            font-size: 28px;
+        }
+
+        li {
+            margin-bottom: 24px;
+            color: var(--muted);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        strong { color: var(--fg); }
+
+        .terminal {
+            background: #000;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            font-family: var(--font-mono);
+            font-size: 18px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .terminal-header { display: flex; gap: 8px; margin-bottom: 24px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-line { margin-bottom: 8px; }
+        .dir { color: #2ee59d; }
+        .cmd { color: #fff; }
+        .out { color: var(--muted); opacity: 0.8; }
+
+        .controls {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 16px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--fg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+        .progress {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    
+    <div class="slides-container" id="container">
+        <!-- Slide 1: Intro -->
+        <section class="slide">
+            <div class="content">
+                <div class="badge">OpenClaw 2026</div>
+                <h1>Beyond the Chatbox</h1>
+                <p class="sub">The architecture of agency and the transition from <strong>Assistants</strong> to <strong>Autonomous Collaborators</strong>.</p>
+                <div style="font-family: var(--font-mono); color: var(--accent);">[ Press Space or Arrows to Navigate ]</div>
+            </div>
+        </section>
+
+        <!-- Slide 2: The Agentic Shift -->
+        <section class="slide">
+            <div class="content">
+                <div class="badge">Concept</div>
+                <h2>The Agentic Shift</h2>
+                <ul>
+                    <li><strong>Chatbox:</strong> Passive search and generation.</li>
+                    <li><strong>Workspace:</strong> Native CLI, File System, and Tool Access.</li>
+                    <li><strong>Agency:</strong> Multi-step reasoning with a physical footprint.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Infrastructure -->
+        <section class="slide">
+            <div class="content">
+                <div class="badge">The Stack</div>
+                <h2>The "SoloCore" Infrastructure</h2>
+                <ul>
+                    <li><strong>Orchestration:</strong> Haiku / Sonnet / Opus / Flash routing.</li>
+                    <li><strong>Persistence:</strong> Flat-file Markdown memory (MEMORY.md).</li>
+                    <li><strong>Efficiency:</strong> 1.4M tokens for <strong>$0.80 USD</strong> / day.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 4: Real World -->
+        <section class="slide">
+            <div class="content">
+                <div class="badge">Impact</div>
+                <h2>Real-World Leverage</h2>
+                <ul>
+                    <li><strong>The Shadow Recruiter:</strong> 100+ applications, 2x salary.</li>
+                    <li><strong>Specialized Swarms:</strong> Multi-agent trading and content desks.</li>
+                    <li><strong>Expert Skills:</strong> Custom domain-specific orchestration.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 5: Demo -->
+        <section class="slide">
+            <div class="content">
+                <div class="badge">Live Demo</div>
+                <h2>Thinkering in Real-Time</h2>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="dir">solotonium@core</span>:<span class="cmd">~ $ openclaw status</span>
+                    </div>
+                    <div class="terminal-content out">
+                        > Agent: Solotonium (SoloCore)<br>
+                        > Host: Linux i7 (32GB RAM / 1TB)<br>
+                        > Status: Monitoring Git / Live Manipulation Ready
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="controls">
+        <button class="nav-btn" onclick="prevSlide()">←</button>
+        <button class="nav-btn" onclick="nextSlide()">→</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const container = document.getElementById('container');
+        const progress = document.getElementById('progress');
+
+        function updateSlide() {
+            container.style.transform = `translateX(-${currentSlide * 100}vw)`;
+            progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') nextSlide();
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+        });
+    </script>
+</body>
+</html>
