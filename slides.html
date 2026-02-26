@@ -242,7 +242,7 @@
             </div>
         </section>
 
-        <!-- Slide 5: The Infrastructure -->
+        <!-- Slide 6: Bounded Infrastructure -->
         <section class="slide">
             <div class="content">
                 <div class="badge">The Stack</div>
@@ -255,20 +255,40 @@
             </div>
         </section>
 
-        <!-- Slide 6: Security & Hardening -->
+        <!-- Slide 7: Hardening the Agency -->
         <section class="slide">
             <div class="content">
-                <div class="badge">Trust</div>
+                <div class="badge">v2026.2.24 Security</div>
                 <h2>Hardening the Agency</h2>
                 <ul>
-                    <li><strong>Isolation First:</strong> Personal assistant architecture (no multi-tenant risk).</li>
-                    <li><strong>Exploit Mitigation:</strong> 30+ security fixes in the last 48 hours (v2026.2.24).</li>
-                    <li><strong>Verifiable Reports:</strong> Hardening against human "gaming" of agentic metrics.</li>
+                    <li><strong>Sandboxed Execution:</strong> Native Docker-based isolation for all agent tool-use.</li>
+                    <li><strong>Security Audits:</strong> Integrated `openclaw security audit --deep` for config hardening.</li>
+                    <li><strong>ACP Protocol:</strong> Verifiable Agent Control Protocol for anti-tamper orchestration.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Slide 7: Demo -->
+        <!-- Slide 8: Platform Highlights -->
+        <section class="slide">
+            <div class="content">
+                <div class="badge">Capabilities</div>
+                <h2>OpenClaw v2.24 Highlights</h2>
+                <div class="grid-2">
+                    <ul style="font-size: 22px;">
+                        <li><strong>Multi-Channel:</strong> Telegram, Discord, WhatsApp, Signal, Slack.</li>
+                        <li><strong>Voice Core:</strong> Native Twilio + ElevenLabs + Cloudflare integration.</li>
+                        <li><strong>Vision/Video:</strong> Real-time analysis via Kimi/Moonshot & Gemini.</li>
+                    </ul>
+                    <ul style="font-size: 22px;">
+                        <li><strong>The Gateway:</strong> WebSocket-first orchestration for local/remote nodes.</li>
+                        <li><strong>Cron Scheduler:</strong> Native isolated session scheduling for background tasks.</li>
+                        <li><strong>Hybrid Brain:</strong> Seamless routing between local Ollama and Cloud APIs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Demo -->
         <section class="slide">
             <div class="content">
                 <div class="badge">Live Demo</div>
@@ -280,13 +300,13 @@
                         <div class="dot green"></div>
                     </div>
                     <div class="terminal-line">
-                        <span class="dir">solotonium@core</span>:<span class="cmd">~ $ ./reddit-scanner.sh openclaw 5</span>
+                        <span class="dir">solotonium@core</span>:<span class="cmd">~ $ openclaw doctor</span>
                     </div>
                     <div class="terminal-content out">
-                        > Launching Bounded Reddit Scanner (Depth: 1, Max: 25)...<br>
-                        > Found: "How I automated 100 job apps..." [1.2k stars]<br>
-                        > Found: "7-Agent Trading Desk Setup" [850 stars]<br>
-                        > Status: Bounded execution active. Ready for command.
+                        > Checking Gateway Health... [OK]<br>
+                        > Verifying Sandbox Isolation... [DOCKER ACTIVE]<br>
+                        > Audit: 30+ Vulnerabilities Patched (v2.24)<br>
+                        > Status: 1.5M tokens optimized. Ready for command.
                     </div>
                 </div>
             </div>
